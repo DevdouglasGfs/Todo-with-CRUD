@@ -4,11 +4,13 @@ import Todo from "./components/Todo.vue";
 
 <template>
   <h1 :class="$style.title">Todo</h1>
-  <Todo />
+  <Suspense>
+    <Todo />
+  </Suspense>
 </template>
 
 <style module lang="scss">
-.title{
+.title {
   color: var(--c-primary);
   font-weight: bolder;
   font-size: var(--tp-bbx);
