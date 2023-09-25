@@ -1,0 +1,46 @@
+:root {
+  --c-primary: #231232;
+  --c-dark: #131313;
+  --tp-bbx: 4em;
+}
+
+body {
+  margin: 0;
+  overflow: hidden scroll;
+  min-height: 100vh;
+  color: var(--c-dark);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app{
+  padding: 3rem 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+}
