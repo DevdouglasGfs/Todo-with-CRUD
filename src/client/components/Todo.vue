@@ -67,6 +67,7 @@ const todos:TodoDto[] = await axios
   list-style: none;
   gap: 2rem 0;
   width: 60%;
+  border-radius: 8px;
 }
 
 .todo {
@@ -75,17 +76,28 @@ const todos:TodoDto[] = await axios
   gap: 8px;
   padding: 1.6rem 2.3rem;
   border-radius: 8px;
-  box-shadow: 0 2px 12px -4px #272727;
-  min-width: 140px;
+  box-shadow: 0 2px 12px -3px var(--c-secundary);
+  font-size: var(--tp-n);
 
   & div {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
   }
   & button {
     display: block;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    background-image: var(--primary-gradient);
+    border-radius: 4px;
+    color: var(--c-primary-dark);
+    transition: all 400ms ease;
+
+    &:focus, &:focus-visible, &:hover{
+      background: var(--c-secundary);
+      color: #fff;
+    }
   }
 }
 </style>

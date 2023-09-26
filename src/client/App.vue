@@ -11,7 +11,6 @@ import Todo from "./components/Todo.vue";
 
 <style module lang="scss">
 .title {
-  color: var(--c-primary);
   font-weight: bolder;
   font-size: var(--tp-bbx);
   text-align: center;

@@ -1,7 +1,16 @@
 :root {
-  --c-primary: #231232;
-  --c-dark: #131313;
+  --c-primary: #2ED5DF;
+  --c-primary-dark: #154245;
+  --c-secundary: #27B4F5;
+  --c-ternary: #DE45A6;
+  --c-complement-ternary: #E38BC3;
+
+  --c-dark: #272727;
+  --tp-n: 1em;
   --tp-bbx: 4em;
+
+  --primary-gradient: linear-gradient(to bottom, #2ED5DF, #27B4F5);
+  --ternary-gradient: linear-gradient(to bottom, #DE45A6, #E38BC3);
 }
 
 body {
