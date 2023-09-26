@@ -19,6 +19,7 @@ const todos:TodoDto[] = await axios
   .catch((e) => {
     console.error(e);
   });
+
 </script>
 
 <template>
@@ -33,21 +34,10 @@ const todos:TodoDto[] = await axios
         <h2 :class="$style.todoTitle">{{ todo.name }}</h2>
         <div>
           <p :class="$style.todoDescription">{{ todo.description }}</p>
-          <button
-            :class="[
-              $style.todoAction,
-              { pending: todo.status === 'pendente' },
-              { finished: todo.status === 'concluído' },
-            ]"
-          >
-            {{
-              todo.status === "pendente"
-                ? "pendente"
-                : todo.status
-                ? "concluído"
-                : "concluído"
-            }}
-          </button>
+          <select :class="$style.todoAction">
+            <option :value="todo.status" :selected="todo.status === 'pendente'">Pendente</option>
+            <option :value="todo.status" :selected="todo.status === 'concluído'">Concluído</option>
+          </select>
         </div>
       </div>
       <div :class="$style.todo" v-else>
@@ -85,7 +75,7 @@ const todos:TodoDto[] = await axios
     width: 100%;
     gap: 2rem;
   }
-  & button {
+  & select {
     display: block;
     padding: 0.5rem 1rem;
     cursor: pointer;

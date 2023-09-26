@@ -1,5 +1,5 @@
 import express, { Response, Request } from "express";
-import { knex } from "knex";
+import {knex} from "knex";
 import ViteExpress from "vite-express";
 import { ref } from "vue";
 

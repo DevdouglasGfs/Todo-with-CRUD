@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import Todo from "./components/Todo.vue";
+import TodoList from "./components/TodoList.vue";
 </script>
 
 <template>
   <h1 :class="$style.title">Todo</h1>
+  div.
   <Suspense>
-    <Todo />
+    <TodoList />
   </Suspense>
 </template>
 
