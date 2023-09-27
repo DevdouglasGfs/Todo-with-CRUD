@@ -1,47 +1,40 @@
 import type { Knex } from "knex";
 
-// Update with your config settings.
-
-const config: { [key: string]: Knex.Config } = {
+export default  {
   development: {
     client: "sqlite3",
     connection: {
-      filename: "./dev.sqlite3"
+      filename: "./src/server/db/todo.sqlite3",
+    },
+    useNullAsDefault: true,
+    migrations:{
+      extension: "ts"
     }
   },
 
   staging: {
-    client: "postgresql",
+    client: "sqlite3",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
+      filename: "./src/server/db/todo.sqlite3",
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    useNullAsDefault: true,
     migrations: {
-      tableName: "knex_migrations"
+      tableName: "knex_migrations",
+      extension: "ts"
     }
   },
 
   production: {
-    client: "postgresql",
+    client: "sqlite3",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
+      filename: "./src/server/db/todo.sqlite3",
+      // flags:['useNullAsDefault']
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    useNullAsDefault: true,
     migrations: {
-      tableName: "knex_migrations"
+      tableName: "knex_migrations",
+      extension: "ts"
     }
   }
 
 };
-
-module.exports = config;

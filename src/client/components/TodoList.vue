@@ -2,13 +2,13 @@
 import axios from "axios";
 
 interface TodoDto {
-id: number;
-name: string;
-description: string;
-status: "pendente" | "concluído"
+  id: number;
+  title: string;
+  description: string;
+  status: "pendente" | "concluído"
 }
 
-const todos:TodoDto[] = await axios
+const todos: TodoDto[] = await axios
   .get("/api/todos", {
     responseType: "json"
   })
@@ -25,13 +25,8 @@ const todos:TodoDto[] = await axios
 <template>
   <ul :class="$style.todos">
     <TransitionGroup>
-      <div
-        :class="$style.todo"
-        v-for="todo in todos"
-        :key="todo.id"
-        v-if="true"
-      >
-        <h2 :class="$style.todoTitle">{{ todo.name }}</h2>
+      <div :class="$style.todo" v-for="todo in todos" :key="todo.id" v-if="true">
+        <h2 :class="$style.todoTitle">{{ todo.title }}</h2>
         <div>
           <p :class="$style.todoDescription">{{ todo.description }}</p>
           <select :class="$style.todoAction">
@@ -55,7 +50,7 @@ const todos:TodoDto[] = await axios
   align-items: center;
   padding: 0;
   list-style: none;
-  gap: 2rem 0;
+  gap: 1rem 0;
   width: 60%;
   border-radius: 8px;
 }
@@ -75,6 +70,7 @@ const todos:TodoDto[] = await axios
     width: 100%;
     gap: 2rem;
   }
+
   & select {
     display: block;
     padding: 0.5rem 1rem;
@@ -84,7 +80,9 @@ const todos:TodoDto[] = await axios
     color: var(--c-primary-dark);
     transition: all 400ms ease;
 
-    &:focus, &:focus-visible, &:hover{
+    &:focus,
+    &:focus-visible,
+    &:hover {
       background: var(--c-secundary);
       color: #fff;
     }
