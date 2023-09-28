@@ -14,12 +14,6 @@ app.get("/api/todos", async (req:Request, res:Response) => {
   }catch(e){
     console.error(e)
   }
-  // res.send([{
-    // id: 1,
-    // name: 'Não sei',
-    // description: 'N sei tmb',
-    // status: 'pendente'
-  // }])
 });
 app.put("/api/todos",(_req:Request, _res:Response) => {
   
