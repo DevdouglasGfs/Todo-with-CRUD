@@ -20,7 +20,7 @@ const todos: TodoDto[] = await axios
   .catch((e) => {
     console.error(e);
   });
-const editingTodo = reactive({editing:false,id: 0});
+const editingTodo = reactive({editing:false, id: 0});
 </script>
 
 <template>
@@ -35,7 +35,10 @@ const editingTodo = reactive({editing:false,id: 0});
             <option :value="todo.status" :selected="todo.status === 'pendente'">Pendente</option>
             <option :value="todo.status" :selected="todo.status === 'concluído'">Concluído</option>
           </select>
-          <button @click="editingTodo.editing = !editingTodo.editing && editingTodo.id === todo.id">Editar</button>
+          <button @click="() => {
+            editingTodo.editing = !editingTodo.editing;
+            editingTodo.id = todo.id
+          }">Editar</button>
         </div>
       </div>
       <div :class="$style.todo" v-else>

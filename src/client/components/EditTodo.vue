@@ -33,7 +33,7 @@ const emits = defineEmits(['close-edit-todo']);
 <style module lang="scss">
 .edit-todo-card {
     position: absolute;
-    z-index: 200;
+    z-index: 200 !important;
     top: -2rem;
     left: 1rem;
     min-width: 130px;
@@ -41,13 +41,14 @@ const emits = defineEmits(['close-edit-todo']);
     flex-direction: column;
     gap: .5rem;
     padding: 1rem 1.75rem;
-    background: #fff;
+    background: #fff !important;
     box-shadow: 0 4px 12px -2px var(--c-secundary);
 
     &__title {
         font-size: var(--tp-bx);
         text-align: center;
         margin: 0;
+        z-index: 99;
     }
 
     &__form {
@@ -55,16 +56,25 @@ const emits = defineEmits(['close-edit-todo']);
         flex-direction: column;
         justify-content: center;
         gap: .5rem;
+        z-index: 98;
 
         & input,
         & select,
         & textarea {
-            padding: .5rem .75rem;
-            border-radius: 4px;
-            color: var(--c-secundary);
+            padding: .5rem .75rem !important;
+            border-radius: 4px !important;
+            z-index: 97 !important;
 
             &::placeholder {
                 color: opacify(#27B4F5, .8);
+            }
+        }
+        & textarea{
+            resize: vertical;
+        }
+        & select{
+            & ::slotted{
+                padding: 2rem ;
             }
         }
     }

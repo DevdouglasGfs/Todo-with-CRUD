@@ -1,7 +1,10 @@
 import "./style.css";
-
 import { createApp } from "vue";
-
 import App from "./App.vue";
+import { LoadFonts } from "./utils/FontAwesomeLoad";
 
-createApp(App).mount("#app");
+const vue = createApp(App)
+
+LoadFonts(vue)
+
+vue.mount("#app");

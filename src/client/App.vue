@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import TodoList from "./components/TodoList.vue";
-import { TodosDto } from "../@types/DTOs";
-
 </script>
 
 <template>
