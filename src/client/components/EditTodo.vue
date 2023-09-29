@@ -27,6 +27,7 @@ const emits = defineEmits(['close-edit-todo']);
                 <option value="Pendente" :selected="todo.status === 'Pendente'">Pendente</option>
                 <option value="Concluído" :selected="todo.status === 'Concluído'">Concluído</option>
             </select>
+            <button type="submit">Confirmar edição</button>
         </form>
     </div>
 </template>
@@ -35,8 +36,10 @@ const emits = defineEmits(['close-edit-todo']);
     position: absolute;
     z-index: 200 !important;
     top: -2rem;
-    left: 1rem;
-    min-width: 130px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-width: 100px;
+    max-width: 90%;
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -64,18 +67,31 @@ const emits = defineEmits(['close-edit-todo']);
             padding: .5rem .75rem !important;
             border-radius: 4px !important;
             z-index: 97 !important;
+            border: .25px solid var(--c-dark) !important;
 
             &::placeholder {
                 color: opacify(#27B4F5, .8);
             }
+            &:focus, :focus-visible{
+                border: none
+            }
+        }
+        & button{
+            border: none !important
         }
         & textarea{
             resize: vertical;
         }
         & select{
+            background-image: none !important;
+            
             & ::slotted{
-                padding: 2rem ;
+                padding: 2rem 0;
             }
+        }
+        & button[type='submit'] {
+            background: var(--ternary-gradient);
+            color: #fff;
         }
     }
 }

@@ -31,14 +31,16 @@ const editingTodo = reactive({editing:false, id: 0});
         <h2 :class="$style.todoTitle">{{ todo.title }}</h2>
         <div>
           <p :class="$style.todoDescription">{{ todo.description }}</p>
-          <select :class="$style.todoAction">
-            <option :value="todo.status" :selected="todo.status === 'pendente'">Pendente</option>
-            <option :value="todo.status" :selected="todo.status === 'concluído'">Concluído</option>
-          </select>
-          <button @click="() => {
-            editingTodo.editing = !editingTodo.editing;
-            editingTodo.id = todo.id
-          }">Editar</button>
+          <div>
+            <select :class="$style.todoAction">
+              <option :value="todo.status" :selected="todo.status === 'pendente'">Pendente</option>
+              <option :value="todo.status" :selected="todo.status === 'concluído'">Concluído</option>
+            </select>
+            <button @click="() => {
+              editingTodo.editing = !editingTodo.editing;
+              editingTodo.id = todo.id
+            }">Editar</button>
+          </div>
         </div>
       </div>
       <div :class="$style.todo" v-else>
@@ -69,17 +71,18 @@ const editingTodo = reactive({editing:false, id: 0});
   border-radius: 8px;
   box-shadow: 0 2px 12px -3px var(--c-secundary);
   font-size: var(--tp-n);
-  z-index: 100;
   min-width: 300px;
   max-width: 70%;
 
-  & div {
-    flex: 1 1 auto;
+  & > div {
+    & div{
+      flex: 1 1 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
     gap: 1rem;
+    }
   }
 
   & p{
@@ -97,6 +100,8 @@ const editingTodo = reactive({editing:false, id: 0});
     border-radius: 4px;
     color: var(--c-primary-dark);
     transition: all 400ms ease;
+    border: none;
+    font-size: var(--tp-n);
 
     &:focus,
     &:focus-visible,
